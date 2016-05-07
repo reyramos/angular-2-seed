@@ -32,7 +32,7 @@ module.exports = function (grunt) {
     function prepareDevWebpackMiddleware() {
 
         //Uncomment this line for rich debug option while development
-        webpackConfig.devtool = "#inline-source-map";
+        webpackConfig.devtool = "source-map";
         var compiler = webpack(webpackConfig);
 
         return webpackDevMiddleware(compiler, {
