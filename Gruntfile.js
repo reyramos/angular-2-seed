@@ -1,5 +1,7 @@
 var path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = function (grunt) {
 
@@ -72,7 +74,7 @@ module.exports = function (grunt) {
                             // This has effect on the react lib size
                             "NODE_ENV": JSON.stringify("production")
                         }
-                    }),                    new webpack.optimize.DedupePlugin(),
+                    }), new webpack.optimize.DedupePlugin(),
                     new webpack.optimize.UglifyJsPlugin({
                         compress: {
                             drop_console: true
@@ -119,7 +121,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            prepareDevWebpackMiddleware(),
+                            connect().use(prepareDevWebpackMiddleware()),
                             mountFolder(connect, appConfig.app),
                             mountFolder(connect, '.')
 
