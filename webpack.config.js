@@ -87,6 +87,9 @@ function makeConfig(options) {
                 ENV: JSON.stringify(options.env)
             }),
             new HtmlWebpackPlugin({
+                // Required
+                inject: false,
+                template: 'node_modules/html-webpack-template/index.ejs',
                 template: path.join(appDir, "index.html"),
             }),
             new ReloadPlugin(isDevServer ? 'localhost' : ''),

@@ -15,23 +15,21 @@ module.exports = function (grunt) {
     );
 
 
-    var webpackConfig = require("./webpack.config.js");
-    var webpackDevMiddleware = require("webpack-dev-middleware");
-    var webpack = require("webpack"),
+    var webpackConfig = require("./webpack.config.js"),
+        webpackDevMiddleware = require("webpack-dev-middleware"),
+        webpack = require("webpack"),
         appConfig = {
             app: require('./bower.json').appPath || 'app',
             dist: 'dist'
         };
 
-
-    var mountFolder = function (connect, dir) {
+    function mountFolder(connect, dir) {
         return connect.static(require('path').resolve(dir));
     };
 
-    var prepareDevWebpackMiddleware = function () {
+    function prepareDevWebpackMiddleware() {
 
         //Uncomment this line for rich debug option while development
-
         webpackConfig.devtool = "#inline-source-map";
         var compiler = webpack(webpackConfig);
 
@@ -117,9 +115,9 @@ module.exports = function (grunt) {
                     middleware: function (connect) {
                         return [
                             prepareDevWebpackMiddleware(),
-                            connect.static('.tmp'),
-                            connect().use('/lib', connect.static('./lib')),
-                            connect.static(appConfig.app)
+                            mountFolder(connect, appConfig.app),
+                            mountFolder(connect, '.')
+
                         ];
                     }
                 }
