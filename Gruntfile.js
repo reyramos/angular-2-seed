@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         var compiler = webpack(webpackConfig);
 
         return webpackDevMiddleware(compiler, {
-            hot: true,
+            // hot: true,
             noInfo: true, //don't need all the useless information, only errors
             stats: {
                 colors: true
@@ -67,8 +67,12 @@ module.exports = function (grunt) {
             options: webpackConfig,
             build: {
                 plugins: webpackConfig.plugins.concat(
-                    new webpack.DefinePlugin({}),
-                    new webpack.optimize.DedupePlugin(),
+                    new webpack.DefinePlugin({
+                        "process.env": {
+                            // This has effect on the react lib size
+                            "NODE_ENV": JSON.stringify("production")
+                        }
+                    }),                    new webpack.optimize.DedupePlugin(),
                     new webpack.optimize.UglifyJsPlugin({
                         compress: {
                             drop_console: true
@@ -90,7 +94,7 @@ module.exports = function (grunt) {
                 keepAlive: true,
                 watch: true,
                 webpack: {
-                    devtool: "eval-source-map",
+                    devtool: "eval",
                     debug: true
                 }
             }
@@ -161,7 +165,7 @@ module.exports = function (grunt) {
     });
 
     // The development server (the recommended option for development)
-    grunt.registerTask("dev", ["webpack-dev-server:start"]);
+    grunt.registerTask("default", ["webpack-dev-server:start"]);
     // Production build
     grunt.registerTask("build", [
         "clean",

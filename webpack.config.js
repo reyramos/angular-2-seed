@@ -34,10 +34,10 @@ function makeConfig(options) {
     return {
         cache: true,
         debug: true,
-        // verbose: true,
-        // displayErrorDetails: true,
-        // displayReasons: true,
-        // displayChunks: true,
+        verbose: true,
+        displayErrorDetails: true,
+        displayReasons: true,
+        displayChunks: true,
         context: __dirname,
         entry: {
             vendor: './app/ts/vendor.ts',
@@ -66,36 +66,7 @@ function makeConfig(options) {
             hotUpdateMainFilename: "updates/[hash].update.json",
             hotUpdateChunkFilename: "updates/[hash].[id].update.js"
         },
-        plugins: [
-            new webpack.IgnorePlugin(/spec\.js$/),
-            // new webpack.optimize.CommonsChunkPlugin('core.js'),
-            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js', minChunks: Infinity}),
-            new webpack.optimize.CommonsChunkPlugin({
-                name: 'common',
-                filename: 'common.js',
-                minChunks: 2,
-                chunks: ['app', 'vendor']
-            }),
-            // new webpack.optimize.CommonsChunkPlugin({
-            //   name: 'angular',
-            //   minChunks: Infinity,
-            //   filename: 'angular.js'
-            // }),
-            new ExtractTextPlugin("styles.css"),
-            new webpack.DefinePlugin({
-                VERSION: JSON.stringify(version),
-                ENV: JSON.stringify(options.env)
-            }),
-            new HtmlWebpackPlugin({
-                // Required
-                template: path.join(appDir, "index.html"),
-            }),
-            new ReloadPlugin(isDevServer ? 'localhost' : ''),
-            new WebpackNotifierPlugin({
-                title: "ng-book",
-                // contentImage: path.join(appDir, 'images/notifier.png')
-            }),
-        ],
+
         resolveLoader: {
             root: path.join(__dirname, 'node_modules'),
             modulesDirectories: ['node_modules'],
@@ -161,7 +132,44 @@ function makeConfig(options) {
         tslint: {
             emitErrors: false,
             failOnHint: false
-        }
+        },
+        plugins: [
+            new webpack.IgnorePlugin(/spec\.js$/),
+            // new webpack.optimize.CommonsChunkPlugin('core.js'),
+            new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js', minChunks: Infinity}),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'common',
+                filename: 'common.js',
+                minChunks: 2,
+                chunks: ['app', 'vendor']
+            }),
+            // new webpack.optimize.CommonsChunkPlugin({
+            //   name: 'angular',
+            //   minChunks: Infinity,
+            //   filename: 'angular.js'
+            // }),
+            new ExtractTextPlugin("styles.css"),
+            new webpack.DefinePlugin({
+                VERSION: JSON.stringify(version),
+                ENV: JSON.stringify(options.env)
+            }),
+            new HtmlWebpackPlugin({
+                // Required
+                template: path.join(appDir, "index.html"),
+            }),
+            new ReloadPlugin(isDevServer ? 'localhost' : ''),
+            new WebpackNotifierPlugin({
+                title: "ng-book",
+                // contentImage: path.join(appDir, 'images/notifier.png')
+            }),
+            new webpack.ProvidePlugin({
+                // Automtically detect jQuery and $ as free var in modules
+                // and inject the jquery library
+                // This is required by many jquery plugins
+                jQuery: "jquery",
+                $: "jquery"
+            })
+        ],
     }
 }
 
