@@ -13,7 +13,6 @@ enableProdMode();
 require('../css/styles.less');
 
 
-
 /**
  * @ngdoc overview
  * @name app.directive:reddit
@@ -31,11 +30,9 @@ require('../css/styles.less');
  */
 
 
-
 @Component({
 	selector: 'reddit',
-	template: `
-	<form class="ui large form segment">
+	template: `<form class="ui large form segment">
 	<h3 class="ui header"> Add Link </h3>
 	
 	<div class="field">
@@ -50,8 +47,7 @@ require('../css/styles.less');
     class="ui positive right floated button">
     Submit Link
 </button>
-</form>
-`
+</form>`
 })
 
 
