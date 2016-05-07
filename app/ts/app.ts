@@ -13,6 +13,25 @@ enableProdMode();
 require('../css/styles.less');
 
 
+
+/**
+ * @ngdoc overview
+ * @name app.directive:reddit
+ * @restrict E
+ *
+ * @description
+ * This is a test document
+ *
+ * @example
+ *
+ * ```html
+ * <reddit></reddit>
+ * ```
+ *
+ */
+
+
+
 @Component({
 	selector: 'reddit',
 	template: `

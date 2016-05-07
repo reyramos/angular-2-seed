@@ -111,6 +111,17 @@ module.exports = function (grunt) {
                 }
             }
         },
+        ngdocs: {
+            options: {
+                //scripts: ['angular.js', 'angular-animate.js'],
+                styles: ['../assets/dashboard.css', '../assets/non-responsive.css'],
+                bestMatch: true,
+                title: "ngSeed API",
+                startPage: '/api',
+                html5Mode: false
+            },
+            all: ['<%= yeoman.app %>/ts/**/*.ts']
+        },
         connect: {
             options: {
                 port: 8080,
@@ -168,6 +179,8 @@ module.exports = function (grunt) {
 
     // The development server (the recommended option for development)
     grunt.registerTask("default", ["webpack-dev-server:start"]);
+    grunt.registerTask('dox', ['ngdocs']);
+
     // Production build
     grunt.registerTask("build", [
         "clean",
