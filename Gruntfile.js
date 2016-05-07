@@ -1,6 +1,5 @@
 var path = require('path'),
-    fs = require('fs'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    fs = require('fs');
 
 
 module.exports = function (grunt) {
@@ -167,7 +166,6 @@ module.exports = function (grunt) {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
-                tasks: ['template:dev'],
                 files: [
                     '<%= yeoman.app %>/*.html',
                     '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}'

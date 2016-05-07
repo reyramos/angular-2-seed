@@ -11,6 +11,7 @@ var webpack = require('webpack'),
  */
 var argv = require('optimist')
     .alias('r', 'release').default('r', false)
+    .alias('e', 'environment').default('e', 'dev')
     .argv;
 
 /**
@@ -18,6 +19,7 @@ var argv = require('optimist')
  */
 var cwd = process.cwd();
 var DEBUG = !argv.release;
+var environment = argv.environment;
 var isDevServer = process.argv.join('').indexOf('webpack-dev-server') > -1;
 var version = require(path.resolve(cwd, 'package.json')).version;
 var reloadHost = "0.0.0.0";
@@ -31,9 +33,11 @@ if (isDevServer) {
 }
 
 function makeConfig(options) {
+
+
     return {
         cache: true,
-        debug: true,
+        debug: DEBUG,
         verbose: true,
         displayErrorDetails: true,
         displayReasons: true,
@@ -47,19 +51,18 @@ function makeConfig(options) {
             colors: true,
             reasons: DEBUG
         },
-        // devtool: 'source-map',
         devtool: 'eval',
         recordsPath: path.resolve('.webpack.json'),
         devServer: {
             inline: true,
             colors: true,
             contentBase: path.resolve(cwd, "build"),
-            publicPath: "/"
+            publicPath: "."
         },
         output: {
             path: path.resolve(cwd, "build"),
             filename: "[name].js",
-            publicPath: "/", // isDevServer ? './': './',
+            publicPath: "", // isDevServer ? './': './',
             chunkFilename: "[id].bundle.js",
 
             // Hot Module Replacement settings:
@@ -123,10 +126,6 @@ function makeConfig(options) {
                 },
                 {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader"},
                 {test: /\.ts$/, loader: 'ts-loader', exclude: [/test/]}
-            ],
-            noParse: [
-                // /\.min\.js/,
-                // /vendor[\/\\].*?\.(js|css)$/
             ]
         },
         tslint: {
@@ -141,7 +140,7 @@ function makeConfig(options) {
                 name: 'common',
                 filename: 'common.js',
                 minChunks: 2,
-                chunks: ['app', 'vendor']
+                chunks: ['vendor', 'app']
             }),
             // new webpack.optimize.CommonsChunkPlugin({
             //   name: 'angular',
@@ -154,12 +153,13 @@ function makeConfig(options) {
                 ENV: JSON.stringify(options.env)
             }),
             new HtmlWebpackPlugin({
-                // Required
+                hash: true,
+                environment:environment,
                 template: path.join(appDir, "index.html"),
             }),
             new ReloadPlugin(isDevServer ? 'localhost' : ''),
             new WebpackNotifierPlugin({
-                title: "ng-book",
+                title: "ng-seed",
                 // contentImage: path.join(appDir, 'images/notifier.png')
             }),
             new webpack.ProvidePlugin({
