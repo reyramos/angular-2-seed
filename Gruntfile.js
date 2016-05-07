@@ -113,10 +113,9 @@ module.exports = function (grunt) {
         },
         ngdocs: {
             options: {
-                //scripts: ['angular.js', 'angular-animate.js'],
                 styles: ['../assets/dashboard.css', '../assets/non-responsive.css'],
                 bestMatch: true,
-                title: "ngSeed API",
+                title: "<%= pkg.name %>",
                 startPage: '/api',
                 html5Mode: false
             },
