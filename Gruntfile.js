@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         webpack = require("webpack"),
         appConfig = {
             app: require('./bower.json').appPath || 'app',
-            dist: 'dist'
+            dist: 'build'
         };
 
     function mountFolder(connect, dir) {
@@ -51,6 +51,7 @@ module.exports = function (grunt) {
 
         clean: {
             server: '.tmp',
+            build: '<%= yeoman.dist %>',
             dist: {
                 files: [{
                     dot: true,
