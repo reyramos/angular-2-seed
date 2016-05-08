@@ -18,7 +18,7 @@ import {HeroDetailComponent} from './hero-detail.component';
     <my-hero-detail [hero]="selectedHero"></my-hero-detail>
   `,
 	styles: [function () {
-		return require('raw!./less/app.component.txt')
+		return require('raw!./less/app.component')
 	}()],
 	directives: [HeroDetailComponent]
 })
