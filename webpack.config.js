@@ -26,7 +26,7 @@ var reloadHost = "0.0.0.0";
 var npmRoot = __dirname + "/node_modules";
 var appDir = __dirname + "/app";
 
-var entry = ["./app/ts/app.ts"]
+var entry = ["./app/ts/main.ts"]
 
 if (isDevServer) {
     entry.unshift("webpack-dev-server/client?http://" + reloadHost + ":8080");
@@ -51,7 +51,8 @@ function makeConfig(options) {
             colors: true,
             reasons: DEBUG
         },
-        devtool: 'eval',
+        devtool: 'source-map',
+        // devtool: 'eval',
         recordsPath: path.resolve('.webpack.json'),
         devServer: {
             inline: true,
@@ -154,7 +155,7 @@ function makeConfig(options) {
             }),
             new HtmlWebpackPlugin({
                 hash: true,
-                environment:environment,
+                environment: environment,
                 template: path.join(appDir, "index.html"),
             }),
             new ReloadPlugin(isDevServer ? 'localhost' : ''),

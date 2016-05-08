@@ -12,8 +12,10 @@
     "node_modules/angular2/ts/typings/node/node.d.ts",
     "node_modules/angular2/typings/browser.d.ts",
     "typings/tsd.d.ts",
-    "app/ts/app.ts",
-    "app/ts/vendor.ts"
+    "app/ts/main.ts",
+    "app/ts/vendor.ts",
+    "app/ts/components/app.component.ts",
+    "app/ts/class/Hero.ts"
   ],
   "filesGlob": [
     "./app/**/*.ts",

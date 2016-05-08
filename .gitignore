@@ -1,4 +1,6 @@
 app/**/*.js
+app/**/*.css
+
 npm-debug.log
 .tmp
 node_modules
