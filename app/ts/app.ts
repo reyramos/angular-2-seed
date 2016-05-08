@@ -39,8 +39,7 @@ import {Article} from './components/Article';
 @Component({
 	selector: 'reddit',
 	directives: [ArticleComponent],
-	template: `
-    <form class="ui large form segment">
+	template: `<form class="ui large form segment">
       <h3 class="ui header">Add a Link</h3>
 
       <div class="field">
@@ -63,8 +62,7 @@ import {Article} from './components/Article';
         *ngFor="#article of sortedArticles()"
         [article]="article">
       </reddit-article>
-    </div>
-  `
+    </div>`
 })
 
 class RedditApp {
