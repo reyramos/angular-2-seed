@@ -33,7 +33,7 @@ require('../css/styles.less');
  * Components
  */
 import {ArticleComponent} from './components/ArticleComponent';
-import {Article} from './components/Article';
+import {Article} from './class/Article';
 
 
 @Component({

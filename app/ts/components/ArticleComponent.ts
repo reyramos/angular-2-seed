@@ -4,7 +4,7 @@
 
 
 import {Component} from '@angular/core';
-import {Article} from './Article';
+import {Article} from '../class/Article';
 
 
 @Component({
