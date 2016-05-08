@@ -155,6 +155,13 @@ function makeConfig(options) {
             }),
             new HtmlWebpackPlugin({
                 hash: true,
+                minify:{
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    conservativeCollapse: true,
+                    collapseBooleanAttributes: false,
+                    removeCommentsFromCDATA: true
+                },
                 environment: environment,
                 template: path.join(appDir, "index.html"),
             }),
