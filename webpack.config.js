@@ -38,10 +38,10 @@ function makeConfig(options) {
     return {
         cache: true,
         debug: DEBUG,
-        verbose: true,
-        displayErrorDetails: true,
-        displayReasons: true,
-        displayChunks: true,
+        // verbose: true,
+        // displayErrorDetails: true,
+        // displayReasons: true,
+        // displayChunks: true,
         context: __dirname,
         entry: {
             vendor: './app/ts/vendor.ts',
@@ -162,13 +162,13 @@ function makeConfig(options) {
                 title: "ng-seed",
                 // contentImage: path.join(appDir, 'images/notifier.png')
             }),
-            new webpack.ProvidePlugin({
-                // Automtically detect jQuery and $ as free var in modules
-                // and inject the jquery library
-                // This is required by many jquery plugins
-                jQuery: "jquery",
-                $: "jquery"
-            })
+            // new webpack.ProvidePlugin({
+            //     // Automtically detect jQuery and $ as free var in modules
+            //     // and inject the jquery library
+            //     // This is required by many jquery plugins
+            //     jQuery: "jquery",
+            //     $: "jquery"
+            // })
         ],
     }
 }
