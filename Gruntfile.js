@@ -110,6 +110,19 @@ module.exports = function (grunt) {
                 }
             }
         },
+        copy: {
+            dist: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= yeoman.app %>/.htaccess'],
+                        dest: '<%= yeoman.dist %>',
+                        filter: 'isFile'
+                    },
+                ]
+            }
+        },
         less: {
             development: {
                 options: {
