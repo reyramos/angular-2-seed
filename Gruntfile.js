@@ -150,6 +150,19 @@ module.exports = function (grunt) {
                 }
             }
         },
+        copy: {
+            build: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= yeoman.app %>/.htaccess'],
+                        dest: '<%= yeoman.dist %>',
+                        filter: 'isFile'
+                    }
+                ]
+            }
+        },
         watch: {
             options: {
                 livereload: '<%= connect.options.livereload %>',
@@ -192,7 +205,8 @@ module.exports = function (grunt) {
     // Production build
     grunt.registerTask("build", [
         "clean",
-        "webpack:build"
+        "webpack:build",
+        "copy"
     ]);
 
     grunt.registerTask("serve-dist", function (target) {
