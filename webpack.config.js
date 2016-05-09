@@ -100,7 +100,10 @@ function makeConfig(options) {
                     test: /^(?!.*\.min\.css$).*\.css$/,
                     loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap")
                 },
-                {test: /\.less$/, loader: "style-loader!css-loader!less-loader"},
+                {
+                    test: /\.less$/,
+                    loader: "raw!less"
+                },
                 {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader"},
                 {test: /\.html$/, loader: "raw"},
                 {test: /^index\.html$/, loader: "file-loader?name=[path][name].[ext]"},
@@ -155,7 +158,7 @@ function makeConfig(options) {
             }),
             new HtmlWebpackPlugin({
                 hash: true,
-                minify:{
+                minify: {
                     removeComments: true,
                     collapseWhitespace: true,
                     conservativeCollapse: true,

@@ -1,12 +1,14 @@
 import {Component}       from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+
 import {HeroService}     from '../services/hero.service';
 import {HeroesComponent} from './heroes.component';
 import {DashboardComponent} from './dashboard.component';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {HeroDetailComponent} from './hero-detail.component';
 
 @Component({
-	selector: 'my-app',
-	template: `
+	selector  : 'my-app',
+	template  : `
     <h1>{{title}}</h1>
     <nav>
       <a [routerLink]="['Dashboard']">Dashboard</a>
@@ -14,29 +16,35 @@ import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-
     </nav>
     <router-outlet></router-outlet>
   `,
-	styles: [function () {
-		return require('raw!./less/app.component')
-	}()],
+	styles    : [require('./less/app.component.less')],
 	directives: [ROUTER_DIRECTIVES],
-	providers: [
+	providers : [
 		ROUTER_PROVIDERS,
 		HeroService
 	]
 })
+
 @RouteConfig([
 	{
-		path: '/heroes',
-		name: 'Heroes',
+		path     : '/heroes',
+		name     : 'Heroes',
 		component: HeroesComponent
 	},
 	{
-		path: '/dashboard',
-		name: 'Dashboard',
-		component: DashboardComponent,
+		path        : '/dashboard',
+		name        : 'Dashboard',
+		component   : DashboardComponent,
 		useAsDefault: true
 	},
+	{
+		path     : '/detail/:id',
+		name     : 'HeroDetail',
+		component: HeroDetailComponent
+	}
+
 
 ])
+
 export class AppComponent {
 	title = 'Tour of Heroes';
 }

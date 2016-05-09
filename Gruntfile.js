@@ -1,5 +1,6 @@
 var path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    modRewrite = require('connect-modrewrite');
 
 
 module.exports = function (grunt) {
@@ -139,6 +140,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
+                            modRewrite(['^[^\\.]*$ /index.html [L]']),
                             connect().use(prepareDevWebpackMiddleware()),
                             mountFolder(connect, appConfig.app),
                             mountFolder(connect, '.')

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router-deprecated';
+import {Router} from '@angular/router-deprecated';
 
 import {Hero} from '../class/Hero';
 import {HeroService} from '../services/hero.service';
@@ -7,18 +7,18 @@ import {HeroService} from '../services/hero.service';
 
 @Component({
 	selector: 'my-dashboard',
-	template: require('html!./views/dashboard.component.html'),
-	styles: [function () {
-		return require('raw!./less/dashboard.component')
-	}()],
+	template:  require('./views/dashboard.component.html'),
+	styles  : [require('./less/dashboard.component.less')],
 })
+
+
 
 export class DashboardComponent implements OnInit {
 	heroes:Hero[] = [];
 
 	constructor(
 		private router: Router,
-		private heroService:HeroService) {
+		private heroService: HeroService) {
 	}
 
 	ngOnInit() {
@@ -26,6 +26,9 @@ export class DashboardComponent implements OnInit {
 			.then(heroes => this.heroes = heroes.slice(1, 5));
 	}
 
-	gotoDetail() { /* not implemented yet */
+	gotoDetail(hero: Hero) {
+		let link = ['HeroDetail', { id: hero.id }];
+		this.router.navigate(link);
 	}
+
 }
