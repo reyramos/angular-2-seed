@@ -3,7 +3,9 @@
 <head>
     <title>Angular 2 - Seed</title>
     <base href="/">
-
+    {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+    <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
+    {% } %}
     <!--    TODO:// make this work with grunt only npm run works
     {% if (o.htmlWebpackPlugin.options.environment === 'dev') { %}
         <link rel="stylesheet/less" type="text/css" href="styles.less">

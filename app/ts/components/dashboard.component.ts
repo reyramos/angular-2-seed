@@ -8,7 +8,7 @@ import {HeroService} from '../services/hero.service';
 @Component({
 	selector: 'my-dashboard',
 	template:  require('./views/dashboard.component.html'),
-	styles  : [require('./less/dashboard.component.less')],
+	styles  : [require('!!raw!less!./less/dashboard.component.less')],
 })
 
 

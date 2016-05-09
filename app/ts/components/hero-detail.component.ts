@@ -8,7 +8,7 @@ import {HeroService} from '../services/hero.service';
 @Component({
 	selector: 'my-hero-detail',
 	template: require('./views/hero-detail.component.html'),
-
+	styles  : [require('!!raw!./less/heroes-detail.component.css')]
 })
 
 

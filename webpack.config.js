@@ -102,16 +102,11 @@ function makeConfig(options) {
                 },
                 {
                     test: /\.less$/,
-                    loader: "raw!less"
+                    loader: "style!css!less"
                 },
                 {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader"},
                 {test: /\.html$/, loader: "raw"},
                 {test: /^index\.html$/, loader: "file-loader?name=[path][name].[ext]"},
-                {
-                    test: /vendor\/.*\.(css|js)/,
-                    loader: 'file-loader?name=[path][name].[ext]',
-                    exclude: [/node_modules/]
-                },
                 {
                     test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
                     loader: "file-loader?mimetype=application/font-woff&name=[path][name].[ext]"

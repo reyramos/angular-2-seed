@@ -3,6 +3,8 @@ import {enableProdMode} from '@angular/core';
 
 // enableProdMode();
 
+require('../css/styles.css');
+
 import {AppComponent} from './components/app.component';
 
 
