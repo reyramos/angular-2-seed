@@ -161,6 +161,17 @@ module.exports = function (grunt) {
                         ];
                     }
                 }
+            },
+            dist: {
+                options: {
+                    base: '<%= yeoman.dist %>',
+                    middleware: function (connect) {
+                        return [
+                            modRewrite(['^[^\\.]*$ /index.html [L]']),
+                            mountFolder(connect, appConfig.dist)
+                        ];
+                    }
+                }
             }
         },
         copy: {
@@ -222,19 +233,13 @@ module.exports = function (grunt) {
         "copy"
     ]);
 
-    grunt.registerTask("serve-dist", function (target) {
-        return grunt.task.run([
-            "build",
-            "connect:dist:keepalive",
-
-        ]);
-    });
-
 
     grunt.registerTask('serve', function (target, env) {
         switch (target) {
             case "dist":
-                return grunt.task.run(["serve-dist:" + (typeof (env) === 'undefined' ? 'dev' : env)]);
+                return grunt.task.run([
+                    "connect:dist:keepalive",
+                ]);
                 break;
             default:
                 return grunt.task.run([
