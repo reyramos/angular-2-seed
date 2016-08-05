@@ -74,7 +74,8 @@ module.exports = function (grunt) {
                             // This has effect on the react lib size
                             "NODE_ENV": JSON.stringify("production")
                         }
-                    }), new webpack.optimize.DedupePlugin(),
+                    }),
+                    new webpack.optimize.DedupePlugin(),
                     new webpack.optimize.UglifyJsPlugin({
                         preserveComments: false,
                         mangle: true,
@@ -238,6 +239,7 @@ module.exports = function (grunt) {
         switch (target) {
             case "dist":
                 return grunt.task.run([
+                    "build",
                     "connect:dist:keepalive",
                 ]);
                 break;
