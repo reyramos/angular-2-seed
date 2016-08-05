@@ -78,9 +78,7 @@ function makeConfig(options) {
         },
         resolve: {
             root: [path.resolve(cwd)],
-            modulesDirectories: [
-                'node_modules', 'app', 'app/ts', '.'
-            ],
+            modulesDirectories: ['node_modules', 'app', 'app/ts', '.'],
             extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.json', '.css', '.less'],
             alias: {
                 // 'rx': '@reactivex/rxjs',
@@ -164,10 +162,10 @@ function makeConfig(options) {
                 template: path.join(appDir, "index.html"),
             }),
             new ReloadPlugin(isDevServer ? 'localhost' : ''),
-            new WebpackNotifierPlugin({
-                title: "ng-seed",
-                // contentImage: path.join(appDir, 'images/notifier.png')
-            }),
+            // new WebpackNotifierPlugin({
+            //     title: "ng-seed",
+            //     // contentImage: path.join(appDir, 'images/notifier.png')
+            // }),
             // new webpack.ProvidePlugin({
             //     // Automtically detect jQuery and $ as free var in modules
             //     // and inject the jquery library

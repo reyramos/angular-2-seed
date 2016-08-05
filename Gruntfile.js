@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         webpackDevMiddleware = require("webpack-dev-middleware"),
         webpack = require("webpack"),
         appConfig = {
-            app: require('./bower.json').src || 'app',
+            app: 'app',
             dist: 'build'
         };
 

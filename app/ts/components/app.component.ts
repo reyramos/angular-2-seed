@@ -1,50 +1,9 @@
-import {Component}       from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
-
-import {HeroService}     from '../services/hero.service';
-import {HeroesComponent} from './heroes.component';
-import {DashboardComponent} from './dashboard.component';
-import {HeroDetailComponent} from './hero-detail.component';
+import { Component } from '@angular/core';
 
 @Component({
-	selector  : 'my-app',
-	template  : `
-    <h1>{{title}}</h1>
-    <nav>
-      <a [routerLink]="['Dashboard']">Dashboard</a>
-      <a [routerLink]="['Heroes']">Heroes</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
-	styles    : [require('!!raw!less!./less/app.component.less')],
-	directives: [ROUTER_DIRECTIVES],
-	providers : [
-		ROUTER_PROVIDERS,
-		HeroService
-	]
+	selector: 'my-app',
+	template: '<h1>My First Angular 2 App</h1>'
 })
 
-@RouteConfig([
-	{
-		path     : '/heroes',
-		name     : 'Heroes',
-		component: HeroesComponent
-	},
-	{
-		path        : '/dashboard',
-		name        : 'Dashboard',
-		component   : DashboardComponent,
-		useAsDefault: true
-	},
-	{
-		path     : '/detail/:id',
-		name     : 'HeroDetail',
-		component: HeroDetailComponent
-	}
 
-
-])
-
-export class AppComponent {
-	title = 'Tour of Heroes';
-}
+export class AppComponent { }
