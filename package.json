@@ -5,14 +5,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "lite": "lite-server",
     "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
     "typings": "typings",
-    "start": "./node_modules/.bin/webpack-dev-server --display-reasons --display-chunks",
-    "build": "./node_modules/.bin/webpack -p -e prod",
-    "clean": "true",
     "test": "karma start"
   },
   "repository": {
@@ -85,7 +79,6 @@
     "karma-webpack": "1.7.0",
     "less": "^1.7.5",
     "less-loader": "^0.7.8",
-    "lite-server": "^2.2.0",
     "live-server": "0.7.1",
     "load-grunt-tasks": "^3.5.0",
     "node-sass": "3.4.2",

@@ -26,7 +26,7 @@ var reloadHost = "0.0.0.0";
 var npmRoot = __dirname + "/node_modules";
 var appDir = __dirname + "/app";
 
-var entry = ["./app/ts/main.ts"]
+var entry = ["./app/main.ts"]
 
 if (isDevServer) {
     entry.unshift("webpack-dev-server/client?http://" + reloadHost + ":8080");
@@ -44,7 +44,7 @@ function makeConfig(options) {
         // displayChunks: true,
         context: __dirname,
         entry: {
-            vendor: './app/ts/vendor.ts',
+            vendor: './app/vendor.ts',
             app: entry,
         },
         stats: {
@@ -78,7 +78,7 @@ function makeConfig(options) {
         },
         resolve: {
             root: [path.resolve(cwd)],
-            modulesDirectories: ['node_modules', 'app', 'app/ts', '.'],
+            modulesDirectories: ['node_modules', 'app', 'app/scripts', '.'],
             extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.json', '.css', '.less'],
             alias: {
                 // 'rx': '@reactivex/rxjs',

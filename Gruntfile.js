@@ -142,7 +142,7 @@ module.exports = function (grunt) {
                 startPage: '/api',
                 html5Mode: false
             },
-            all: ['<%= yeoman.app %>/ts/**/*.ts']
+            all: ['<%= yeoman.app %>/scripts/**/*.ts']
         },
         connect: {
             options: {
