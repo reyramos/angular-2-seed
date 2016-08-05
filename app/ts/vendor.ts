@@ -2,11 +2,13 @@
  * Created by reyra on 5/6/2016.
  */
 // Polyfills
-import 'es6-shim/es6-shim';
+// import 'es6-shim/es6-shim';
+// import 'core-js/client/shim';
 import 'zone.js/dist/zone';
 import 'reflect-metadata/Reflect';
-//
-//
+
+
+
 // if (process.env.ENV === 'build') {
 //     // Production
 //

@@ -6,7 +6,7 @@ import { bootstrap }    from '@angular/platform-browser-dynamic';
 
 // enableProdMode();
 
-// require('../css/styles.css');
+require('../css/styles.css');
 
 import {AppComponent} from './components/app.component';
 
