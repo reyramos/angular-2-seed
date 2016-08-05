@@ -1,41 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 //library
-import {Hero} from './class/Hero';
-import {HeroDetailComponent} from './heroeDetail/hero-detail.component';
+import {HeroesComponent} from './heroes/heroes.component';
 import {HeroService} from './services/hero.service';
 
 
 @Component({
     selector: 'my-app',
     template: require('./app.component.html'),
-    //to import styles convert to raw files after less conversion
-    styles: [require('!!raw!less!./app.component.less')],
-    directives: [HeroDetailComponent],
+    directives: [HeroesComponent],
     providers: [HeroService]
 })
 
 
-export class AppComponent implements OnInit {
+export class AppComponent {
     title = 'Tour of Heroes';
-    heroes:Hero[];
-    selectedHero:Hero;
-
-    constructor(private heroService:HeroService) {
-    }
-
-    getHeroes() {
-        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-    }
-
-    ngOnInit() {
-        this.getHeroes();
-    }
-
-
-    onSelect(hero:Hero) {
-        this.selectedHero = hero;
-    }
-
 }
 
