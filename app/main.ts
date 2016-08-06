@@ -8,10 +8,11 @@ import { bootstrap }    from '@angular/platform-browser-dynamic';
 
 // require('css/styles.css');
 
-import {AppComponent} from './scripts/app.component';
+import {AppComponent} from './ts/app.component';
 
 
-bootstrap(AppComponent);
+bootstrap(AppComponent).catch(err => console.error(err));
+
 
 // bootstrap(AppComponent, [
 // 	ROUTER_PROVIDERS,
