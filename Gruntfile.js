@@ -124,26 +124,6 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        less: {
-            development: {
-                options: {
-                    paths: ["src/style", "bower_components", "vendor"]
-                },
-                files: {
-                    ".tmp/css/styles.css": "<%= yeoman.app %>/css/styles.less"
-                }
-            }
-        },
-        ngdocs: {
-            options: {
-                styles: ['../assets/dashboard.css', '../assets/non-responsive.css'],
-                bestMatch: true,
-                title: "<%= pkg.name %>",
-                startPage: '/api',
-                html5Mode: false
-            },
-            all: ['<%= yeoman.app %>/scripts/**/*.ts']
-        },
         connect: {
             options: {
                 port: 8080,
@@ -225,7 +205,6 @@ module.exports = function (grunt) {
 
     // The development server (the recommended option for development)
     grunt.registerTask("default", ["webpack-dev-server:start"]);
-    grunt.registerTask('dox', ['ngdocs']);
 
     // Production build
     grunt.registerTask("build", [
