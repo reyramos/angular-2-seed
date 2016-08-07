@@ -3,6 +3,7 @@ app/**/*.js
 logs
 *.log
 node_modules/
+dist/
 
 # Runtime data
 pids
