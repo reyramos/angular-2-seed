@@ -1,11 +1,16 @@
+var path = require("path");
+
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
 
-
 module.exports = {
+  // context: path.dirname(__dirname),
+  // cache: true,
+  //
+
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
