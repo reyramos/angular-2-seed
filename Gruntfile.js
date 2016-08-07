@@ -87,7 +87,7 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 8080,
-        hostname: "0.0.0.0",
+        hostname: '*',
         livereload: 35729
       },
       livereload: {
@@ -95,7 +95,7 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               modRewrite(['^[^\\.]*$ /index.html [L]']),
-              connect().use(prepareDevWebpackMiddleware()),
+              prepareDevWebpackMiddleware(),
               mountFolder(connect, appConfig.app),
               mountFolder(connect, '.')
             ];
