@@ -7,18 +7,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false,
-    "noEmitHelpers": false
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
   },
-  "files": [
-    "node_modules/angular2/ts/typings/node/node.d.ts",
-    "node_modules/angular2/typings/browser.d.ts"
-  ],
   "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
-  ],
-  "compileOnSave": false,
-  "buildOnSave": false
+    "node_modules"
+  ]
 }
