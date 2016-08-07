@@ -12,11 +12,11 @@ import {HeroService} from '../services/hero.service';
 
 
 export class DashboardComponent implements OnInit {
-
 	heroes: Hero[] = [];
 
-	constructor(private router: Router,
-	            private heroService: HeroService) {
+	constructor(
+		private router: Router,
+		private heroService: HeroService) {
 	}
 
 	ngOnInit() {
@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
 		this.router.navigate(link);
 	}
 }
-
 
 /*
  Copyright 2016 Google Inc. All Rights Reserved.

@@ -19,7 +19,15 @@ if (process.env.ENV === 'production') {
 }
 
 
+/*
+ bootstrap(AppComponent, [
+ appRouterProviders,
+ HTTP_PROVIDERS
+ ]);
+ */
 bootstrap(AppComponent, [
 	appRouterProviders,
-	HTTP_PROVIDERS
+	HTTP_PROVIDERS,
+	{ provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem server
+	{ provide: SEED_DATA, useClass: InMemoryDataService }      // in-mem server data
 ]);
