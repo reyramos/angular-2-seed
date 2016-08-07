@@ -9,7 +9,6 @@ import {HeroService} from '../services/hero.service';
 @Component({
 	selector: 'my-hero-detail',
 	template: require('./hero-detail.component.html'),
-	template: require('./hero-detail.component.html'),
 	//to import styles convert to raw files after less conversion
 	styles  : [require('!!raw!less!./hero-detail.component.less')],
 })
