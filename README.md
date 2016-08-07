@@ -2,17 +2,19 @@
 
 > A simple Hello World seed project with WepPack integration
 
-## Dependencies
 
-Before you get started, you need to make sure you have node.js installed. We'll be using `npm` to run this project (`npm` will be installed when you install node.js). You can [install node.js here](https://nodejs.org/en/).
 
-## Installing
+## Let's get started with Development Enviroment
+- Install Node.JS version 5.10>
+Use your system package manager (brew,port,apt-get,yum etc)
 
-First, you need to make sure you install the dependencies:
+- Install global Grunt and Bower commands, once you install the following commands globally, you can run 'npm install' to run the components in the package.json file
 
+```bash
+	npm install -g grunt-cli bower
+	npm install //load all your additional package.json components
 ```
-npm install
-```
+
 
 Then we will 
 
@@ -22,7 +24,7 @@ Then we will
 by running the command:
 
 ```
-npm run go
+grunt serve
 ```
 
 Then visit [http://localhost:8080](http://localhost:8080) in your browser. You should see an application with the header `Angular 2 Simple Reddit`. 

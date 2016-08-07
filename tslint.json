@@ -1,9 +1,10 @@
+
 {
   "rules": {
-   "align": [true,
-        "parameters",
-        "arguments",
-        "statements"],
+    "align": [true,
+      "parameters",
+      "arguments",
+      "statements"],
     "class-name": true,
     "comment-format": [true, "check-space"],
     "curly": true,
@@ -16,9 +17,9 @@
     "jsdoc-format": true,
     "max-line-length": [true, 80],
     "member-ordering": [true,
-        "public-before-private",
-        "static-before-instance",
-        "variables-before-functions"
+      "public-before-private",
+      "static-before-instance",
+      "variables-before-functions"
     ],
     "no-arg": true,
     "no-bitwise": true,
@@ -58,18 +59,18 @@
     "sort-object-literal-keys": false,
     "triple-equals": [true, "allow-null-check"],
     "typedef": [true,
-        "call-signature",
-        "parameter",
-        "property-declaration",
-        "variable-declaration",
-        "member-variable-declaration"
+      "call-signature",
+      "parameter",
+      "property-declaration",
+      "variable-declaration",
+      "member-variable-declaration"
     ],
     "typedef-whitespace": [true, {
-        "call-signature": "nospace",
-        "index-signature": "nospace",
-        "parameter": "nospace",
-        "property-declaration": "nospace",
-        "variable-declaration": "nospace"
+      "call-signature": "nospace",
+      "index-signature": "nospace",
+      "parameter": "nospace",
+      "property-declaration": "nospace",
+      "variable-declaration": "nospace"
     }],
     "variable-name": [true,
       "allow-leading-underscore"],
