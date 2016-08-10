@@ -7,18 +7,18 @@ var helpers = require('./helpers');
 
 
 module.exports = {
-  // context: path.dirname(__dirname),
-  // cache: true,
-  //
+  context: path.dirname(__dirname),
+  cache: true,
+
 
   entry: {
-    'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
     'app': './src/main.ts'
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts']
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+
   },
 
   module: {
@@ -55,7 +55,7 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loaders: ['ts', 'angular2-template-loader'],
+        loaders: ['ts-loader', 'angular2-template-loader'],
         exclude: [/test/]
       }
     ]
@@ -63,7 +63,7 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
+      name: ['app', 'vendor']
     }),
 
     new HtmlWebpackPlugin({

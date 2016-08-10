@@ -33,8 +33,8 @@ module.exports = function (grunt) {
 
     // //Uncomment this line for rich debug option while development
     // webpackConfig.devtool = "#inline-source-map";
-
-    return webpackDevMiddleware(webpack(webpackConfig), {
+    var wp = webpack(webpackConfig);
+    return webpackDevMiddleware(wp, {
       noInfo: true, //don't need all the useless information, only errors
       stats: {
         colors: true
@@ -95,9 +95,10 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               modRewrite(['^[^\\.]*$ /index.html [L]']),
-              prepareDevWebpackMiddleware(),
+              connect().use(prepareDevWebpackMiddleware()),
               mountFolder(connect, appConfig.app),
               mountFolder(connect, '.')
+
             ];
           }
         }
