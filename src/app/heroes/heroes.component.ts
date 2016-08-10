@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 
 //library
-import {Hero} from '../class/Hero';
-import {HeroDetailComponent} from '../heroeDetail/hero-detail.component';
+import {Hero} from '../class/hero';
 import {HeroService} from '../services/hero.service';
 
 
@@ -12,12 +11,9 @@ import {HeroService} from '../services/hero.service';
     selector: 'my-heroes',
     template: require('./heroes.component.html'),
     //to import styles convert to raw files after less conversion
-    styles: [require('!!raw!less!./heroes.component.less')],
-    directives: [HeroDetailComponent],
-    providers: [HeroService]
+    styles: [require('!!raw!less!./heroes.component.less')]
 
 })
-
 
 export class HeroesComponent implements OnInit {
     heroes: Hero[];

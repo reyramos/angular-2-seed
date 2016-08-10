@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {Hero} from '../class/Hero';
+import {Hero} from '../class/hero';
 import {HeroService} from '../services/hero.service';
 
 @Component({
@@ -29,9 +29,3 @@ export class DashboardComponent implements OnInit {
 		this.router.navigate(link);
 	}
 }
-
-/*
- Copyright 2016 Google Inc. All Rights Reserved.
- Use of this source code is governed by an MIT-style license that
- can be found in the LICENSE file at http://angular.io/license
- */

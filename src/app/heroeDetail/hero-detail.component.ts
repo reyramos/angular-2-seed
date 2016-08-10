@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, OnDestroy, Output} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 //library
-import {Hero} from '../class/Hero';
+import {Hero} from '../class/hero';
 import {HeroService} from '../services/hero.service';
 
 
@@ -14,11 +14,10 @@ import {HeroService} from '../services/hero.service';
 })
 
 
-export class HeroDetailComponent implements OnInit, OnDestroy {
+export class HeroDetailComponent implements OnInit {
 	@Input() hero: Hero;
 	@Output() close = new EventEmitter();
 	error: any;
-	sub: any;
 	navigated = false; // true if navigated here
 
 	constructor(
@@ -27,7 +26,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.sub = this.route.params.subscribe(params => {
+		this.route.params.forEach((params: Params) => {
 			if (params['id'] !== undefined) {
 				let id = +params['id'];
 				this.navigated = true;
@@ -38,10 +37,6 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
 				this.hero = new Hero();
 			}
 		});
-	}
-
-	ngOnDestroy() {
-		this.sub.unsubscribe();
 	}
 
 	save() {
