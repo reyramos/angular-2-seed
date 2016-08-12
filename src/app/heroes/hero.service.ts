@@ -4,8 +4,7 @@ import {Headers, Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise.js';
 
-import {Hero} from '../class/hero';
-
+import {Hero} from './hero';
 
 @Injectable()
 export class HeroService {

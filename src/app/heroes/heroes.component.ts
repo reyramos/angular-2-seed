@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 
 
 //library
-import {Hero} from '../class/hero';
-import {HeroService} from '../services/hero.service';
+import {Hero} from './hero';
+import {HeroService} from './hero.service';
 
 
 @Component({

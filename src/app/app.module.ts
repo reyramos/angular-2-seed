@@ -1,3 +1,9 @@
+// Imports for loading & configuring the in-memory web api
+import {HttpModule, XHRBackend} from '@angular/http';
+
+import {InMemoryBackendService, SEED_DATA} from 'angular2-in-memory-web-api';
+import {InMemoryDataService}               from './in-memory-data.service';
+
 /**
  * Created by ramor11 on 8/10/2016.
  */
@@ -5,42 +11,35 @@ import {NgModule}       from '@angular/core';
 import {BrowserModule}  from '@angular/platform-browser';
 import {FormsModule}    from '@angular/forms';
 
-// Imports for loading & configuring the in-memory web api
-import {HttpModule, XHRBackend} from '@angular/http';
 
-import {InMemoryBackendService, SEED_DATA} from 'angular2-in-memory-web-api';
-import {InMemoryDataService}               from './in-memory-data.service';
+//routing
+import {routing, appRoutingProviders}        from './app.routing';
+
+import {HeroesModule} from './heroes/heroes.module';
 
 //application declarations
 import {AppComponent}  from './app.component';
-//routing
-import {routing}        from './app.routes';
 
 
-import {DashboardComponent}  from './dashboard/dashboard.component';
-import {HeroDetailComponent}  from './heroeDetail/hero-detail.component';
-import {HeroesComponent}  from './heroes/heroes.component';
-import {HeroSearchComponent}  from './heroesSearch/heroes-search.component';
-
+import {LoginComponent} from './login/login.component';
 //services
-import {HeroService}  from './services/hero.service';
+import {DialogService}  from './services/dialog.service';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         routing,
-        HttpModule
+        HttpModule,
+        HeroesModule
     ],
     declarations: [
         AppComponent,
-        HeroesComponent,
-        DashboardComponent,
-        HeroDetailComponent,
-        HeroSearchComponent
+        LoginComponent
     ],
     providers: [
-        HeroService,
+        appRoutingProviders,
+        DialogService,
         {provide: XHRBackend, useClass: InMemoryBackendService}, // in-mem server
         {provide: SEED_DATA, useClass: InMemoryDataService}     // in-mem server data
     ],
