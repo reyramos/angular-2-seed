@@ -11,15 +11,12 @@ import {NgModule}       from '@angular/core';
 import {BrowserModule}  from '@angular/platform-browser';
 import {FormsModule}    from '@angular/forms';
 
-
+//application declarations
+import {AppComponent}  from './app.component';
 //routing
 import {routing, appRoutingProviders}        from './app.routing';
 
 import {HeroesModule} from './heroes/heroes.module';
-
-//application declarations
-import {AppComponent}  from './app.component';
-
 
 import {LoginComponent} from './login/login.component';
 //services
