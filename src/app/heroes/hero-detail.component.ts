@@ -1,55 +1,51 @@
-import {Component, EventEmitter, Input, OnInit, OnDestroy, Output} from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute }       from '@angular/router';
 
-//library
-import {Hero} from './hero';
-import {HeroService} from './hero.service';
-
+import { Hero, HeroService }  from './hero.service';
+import { Subscription }       from 'rxjs/Subscription';
 
 @Component({
-	selector: 'my-hero-detail',
-	template: require('./hero-detail.component.html'),
-	//to import styles convert to raw files after less conversion
-	styles  : [require('!!raw!less!./hero-detail.component.less')],
+	template: `
+  <h2>HEROES</h2>
+  <div *ngIf="hero">
+    <h3>"{{hero.name}}"</h3>
+    <div>
+      <label>Id: </label>{{hero.id}}</div>
+    <div>
+      <label>Name: </label>
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </div>
+    <p>
+      <button (click)="gotoHeroes()">Back</button>
+    </p>
+  </div>
+  `
 })
+export class HeroDetailComponent implements OnInit, OnDestroy  {
+	hero: Hero;
 
-
-export class HeroDetailComponent implements OnInit {
-	@Input() hero: Hero;
-	@Output() close = new EventEmitter();
-	error: any;
-	navigated = false; // true if navigated here
+	private sub: Subscription;
 
 	constructor(
-		private heroService: HeroService,
-		private route: ActivatedRoute) {
-	}
+		private route: ActivatedRoute,
+		private router: Router,
+		private service: HeroService) {}
 
 	ngOnInit() {
-		this.route.params.forEach((params: Params) => {
-			if (params['id'] !== undefined) {
-				let id = +params['id'];
-				this.navigated = true;
-				this.heroService.getHero(id)
-					.then(hero => this.hero = hero);
-			} else {
-				this.navigated = false;
-				this.hero = new Hero();
-			}
+		this.sub = this.route.params.subscribe(params => {
+			let id = +params['id']; // (+) converts string 'id' to a number
+			this.service.getHero(id).then(hero => this.hero = hero);
 		});
 	}
 
-	save() {
-		this.heroService
-			.save(this.hero)
-			.then(hero => {
-				this.hero = hero; // saved hero, w/ id if new
-				this.goBack(hero);
-			})
-			.catch(error => this.error = error); // TODO: Display error message
+	ngOnDestroy() {
+		this.sub.unsubscribe();
 	}
-	goBack(savedHero: Hero = null) {
-		this.close.emit(savedHero);
-		if (this.navigated) { window.history.back(); }
+
+	gotoHeroes() {
+		let heroId = this.hero ? this.hero.id : null;
+		// Pass along the hero id if available
+		// so that the HeroList component can select that hero.
+		this.router.navigate(['/heroes', { id: heroId, foo: 'foo' }]);
 	}
 }

@@ -1,6 +1,3 @@
-/**
- * Created by ramor11 on 8/12/2016.
- */
 // TODO SOMEDAY: Feature Componetized like CrisisCenter
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';

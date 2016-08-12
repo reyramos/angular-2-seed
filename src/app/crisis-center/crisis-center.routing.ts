@@ -9,7 +9,7 @@ import { CrisisListComponent }   from './crisis-list.component';
 import { CrisisAdminComponent }  from './crisis-admin.component';
 
 import { CanDeactivateGuard }    from '../services/can-deactivate-guard.service';
-import { AuthGuard }             from '../services/auth-guard.service';
+import { AuthGuard }             from '../login/auth-guard.service';
 import { CrisisDetailResolve }   from './crisis-detail-resolve.service';
 
 
