@@ -7,9 +7,9 @@ var helpers = require('./helpers');
 
 
 module.exports = {
-  // context: path.dirname(__dirname),
-  // cache: true,
-  //
+  context: path.dirname(__dirname),
+  cache: true,
+
 
   entry: {
     'polyfills': './src/polyfills.ts',
@@ -18,7 +18,10 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts']
+    root: path.resolve(path.dirname(__dirname)),
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
+    modulesDirectories: ['node_modules']
+
   },
 
   module: {
@@ -29,7 +32,8 @@ module.exports = {
       {
         test: /^(?!.*\.min\.css$).*\.css$/,
         // include: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap")
+        // loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap"
+        loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap'})
       },
       {
         test: /\.less$/,
@@ -55,7 +59,7 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loaders: ['ts', 'angular2-template-loader'],
+        loaders: ['ts-loader', 'angular2-template-loader'],
         exclude: [/test/]
       }
     ]
