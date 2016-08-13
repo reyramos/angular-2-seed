@@ -32,7 +32,8 @@ module.exports = {
       {
         test: /^(?!.*\.min\.css$).*\.css$/,
         // include: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap")
+        // loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap"
+        loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap'})
       },
       {
         test: /\.less$/,

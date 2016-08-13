@@ -2,10 +2,8 @@
  * Created by ramor11 on 8/12/2016.
  */
 import { Injectable }             from '@angular/core';
-import { Router, Resolve,
-    ActivatedRouteSnapshot } from '@angular/router';
+import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable }             from 'rxjs/Observable';
-
 import { Crisis, CrisisService } from './crisis.service';
 
 @Injectable()
