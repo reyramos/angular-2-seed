@@ -31,7 +31,7 @@ import {DialogService}  from './services/dialog.service';
 		BrowserModule,
 		FormsModule,
 		routing,
-		// HttpModule,
+		HttpModule,
 		HeroesModule
 	],
 	declarations: [
