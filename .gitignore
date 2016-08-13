@@ -5,6 +5,8 @@ logs
 node_modules/
 dist/
 build/
+**/*.ngfactory.ts
+**/codegen
 
 # Runtime data
 pids
