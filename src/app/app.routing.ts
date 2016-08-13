@@ -1,13 +1,12 @@
 import {Routes, RouterModule} from '@angular/router';
 
 
-
 import {loginRoutes, authProviders}  from './login/login.routing';
 
 import {CanDeactivateGuard} from './services/can-deactivate-guard.service';
 
 
-import { load } from './utils/async-ng-module-loader';
+import {load} from './utils/async-ng-module-loader';
 
 
 const crisisCenterRoutes: Routes = [
@@ -17,21 +16,23 @@ const crisisCenterRoutes: Routes = [
 		pathMatch : 'full'
 	},
 	{
-		path   : 'crisis-center',
+		path        : 'crisis-center',
 		// loadChildren: 'app/crisis-center/crisis-center.module#CrisisCenterModule',
 		// loadChildren: require('es6-promise!./crisis-center/crisis-center.module'),
 		// component: require('es6-promise!./crisis-center/crisis-center.module')('CrisisCenterModule'),
 		// loadChildren: System.import('./crisis-center/crisis-center.module').then((comp: any) => {
 		// 	return comp;
 		// }),
-		loadChildren: load(() => new Promise(resolve => {
-			(require as any).ensure([], (require: any) => {
-				resolve(require('./crisis-center/crisis-center.module').CrisisCenterModule);
-			})
+		// loadChildren: load(() => new Promise(resolve => {
+		// 	(require as any).ensure([], (require: any) => {
+		// 		resolve(require('es6-promise!./crisis-center/crisis-center.module').CrisisCenterModule);
+		// 	})
+		// })),
+		loadChildren: load(() => System.import('./crisis-center/crisis-center.module').then((comp: any) => {
+			return comp.CrisisCenterModule;
 		}))
 	}
 ];
-
 
 
 const appRoutes: Routes = [
