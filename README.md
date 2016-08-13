@@ -1,7 +1,6 @@
-# Angular 2 Seed
+# Angular 2 RC5 Seed Project - WebPack2.1.0-beta.20 - LazyLoading
 
-> A simple Hello World seed project with WepPack integration
-
+> A simple angular tutorial from their own documentation of LazyLoading with System.config, instead used prefer bundler WebPack2
 
 
 ## Let's get started with Development Enviroment
@@ -24,6 +23,8 @@ Then we will
 by running the command:
 
 ```
+npm start
+//or
 grunt serve
 ```
 
