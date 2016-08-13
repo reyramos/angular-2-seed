@@ -23,14 +23,19 @@ const crisisCenterRoutes: Routes = [
 		// loadChildren: System.import('./crisis-center/crisis-center.module').then((comp: any) => {
 		// 	return comp;
 		// }),
-		// loadChildren: load(() => new Promise(resolve => {
-		// 	(require as any).ensure([], (require: any) => {
-		// 		resolve(require('es6-promise!./crisis-center/crisis-center.module').CrisisCenterModule);
+		loadChildren: load(() => new Promise(resolve => {
+			(require as any).ensure([], (require: any) => {
+				resolve(require('./crisis-center/crisis-center.module').CrisisCenterModule);
+			})
+		})),
+		// loadChildren: load(() => System.import('./crisis-center/crisis-center.module').then((comp: any) => {
+		// 	return comp.CrisisCenterModule;
+		// }))
+		// loadChildren: () => new Promise(resolve => {
+		// 	System.import('./crisis-center/crisis-center.module').then((comp: any) => {
+		// 		return comp.CrisisCenterModule;
 		// 	})
-		// })),
-		loadChildren: load(() => System.import('./crisis-center/crisis-center.module').then((comp: any) => {
-			return comp.CrisisCenterModule;
-		}))
+		// })
 	}
 ];
 

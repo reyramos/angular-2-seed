@@ -33,4 +33,5 @@ import { crisisCenterRouting } from './crisis-center.routing';
         CrisisDetailResolve
     ]
 })
+
 export class CrisisCenterModule {}
