@@ -17,25 +17,11 @@ const crisisCenterRoutes: Routes = [
 	},
 	{
 		path        : 'crisis-center',
-		// loadChildren: 'app/crisis-center/crisis-center.module#CrisisCenterModule',
-		// loadChildren: require('es6-promise!./crisis-center/crisis-center.module'),
-		// component: require('es6-promise!./crisis-center/crisis-center.module')('CrisisCenterModule'),
-		// loadChildren: System.import('./crisis-center/crisis-center.module').then((comp: any) => {
-		// 	return comp;
-		// }),
 		loadChildren: load(() => new Promise(resolve => {
 			(require as any).ensure([], (require: any) => {
 				resolve(require('./crisis-center/crisis-center.module').CrisisCenterModule);
 			})
-		})),
-		// loadChildren: load(() => System.import('./crisis-center/crisis-center.module').then((comp: any) => {
-		// 	return comp.CrisisCenterModule;
-		// }))
-		// loadChildren: () => new Promise(resolve => {
-		// 	System.import('./crisis-center/crisis-center.module').then((comp: any) => {
-		// 		return comp.CrisisCenterModule;
-		// 	})
-		// })
+		}))
 	}
 ];
 

@@ -1,9 +1,9 @@
 // Imports for loading & configuring the in-memory web api
-// import {HttpModule, XHRBackend} from '@angular/http';
+import {HttpModule, XHRBackend} from '@angular/http';
 
-// import {InMemoryBackendService, SEED_DATA} from 'angular2-in-memory-web-api';
-// import {InMemoryDataService}               from './in-memory-data.service';
-//
+import {InMemoryBackendService, SEED_DATA} from 'angular2-in-memory-web-api';
+import {InMemoryDataService}               from './in-memory-data.service';
+
 
 import {NgModuleFactoryLoader} from '@angular/core';
 import {AsyncNgModuleLoader} from './utils/async-ng-module-loader';
@@ -43,8 +43,8 @@ import {DialogService}  from './services/dialog.service';
 		DialogService,
 		// { provide: LocationStrategy, useClass: HashLocationStrategy },
 		{provide: NgModuleFactoryLoader, useClass: AsyncNgModuleLoader},
-		// {provide: XHRBackend, useClass: InMemoryBackendService}, // in-mem server
-		// {provide: SEED_DATA, useClass: InMemoryDataService}     // in-mem server data
+		{provide: XHRBackend, useClass: InMemoryBackendService}, // in-mem server
+		{provide: SEED_DATA, useClass: InMemoryDataService}     // in-mem server data
 	],
 	bootstrap   : [AppComponent]
 })

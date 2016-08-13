@@ -10,7 +10,7 @@ import { PageNotFoundComponent }  from '../404/page-not-found.compoent';
 const heroesRoutes: Routes = [
     { path: 'heroes',  component: HeroListComponent },
     { path: 'hero/:id', component: HeroDetailComponent },
-    { path: '**', component: PageNotFoundComponent }
+    // { path: '**', component: PageNotFoundComponent }
 
 ];
 
