@@ -7,6 +7,8 @@ import { Subscription }       from 'rxjs/Subscription';
 @Component({
     template: require('./views/hero-list.component.html')
 })
+
+
 export class HeroListComponent implements OnInit, OnDestroy {
     heroes: Hero[];
 
