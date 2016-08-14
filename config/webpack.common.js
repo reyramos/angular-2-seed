@@ -37,7 +37,8 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: "style!css!less"
+        // loader: "style!css!less"
+        loader: "raw!less"
       },
       {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url-loader"},
       {test: /\.html$/, loader: "raw"},

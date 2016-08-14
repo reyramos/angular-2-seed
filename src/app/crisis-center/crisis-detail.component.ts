@@ -66,6 +66,6 @@ export class CrisisDetailComponent implements OnInit {
         // so that the CrisisListComponent can select that hero.
         // Add a totally useless `foo` parameter for kicks.
         // Absolute link
-        this.router.navigate(['/crisis-center', { id: crisisId, foo: 'foo' }]);
+        this.router.navigate(['/crisis-center'/*, { id: crisisId, foo: 'foo' }*/]);
     }
 }

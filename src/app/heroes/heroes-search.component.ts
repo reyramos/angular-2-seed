@@ -11,11 +11,13 @@ import { Hero } from './hero';
 
 @Component({
     selector: 'hero-search',
-    template: require('./heroes-search.component.html'),
+    template: require('./views/heroes-search.component.html'),
     //to import styles convert to raw files after less conversion
-    styles  : [require('!!raw!less!./heroes-search.less')],
+    styles  : [require('./less/heroes-search.less')],
     providers: [HeroSearchService]
 })
+
+
 export class HeroSearchComponent implements OnInit {
     heroes: Observable<Hero[]>;
     private searchTerms = new Subject<string>();

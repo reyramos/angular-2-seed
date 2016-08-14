@@ -7,7 +7,7 @@ require('../css/styles.css');
 @Component({
     selector: 'my-app',
     template: require('./app.component.html'),
-    styles: [require('!!raw!less!./app.component.less')]
+    styles: [require('./app.component.less')]
 })
 
 
