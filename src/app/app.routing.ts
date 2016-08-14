@@ -10,11 +10,11 @@ import {load} from './utils/async-ng-module-loader';
 
 
 const crisisCenterRoutes: Routes = [
-	{
-		path      : '',
-		redirectTo: '/heroes',
-		pathMatch : 'full'
-	},
+	// {
+	// 	path      : '',
+	// 	redirectTo: '',
+	// 	pathMatch : 'full'
+	// },
 	{
 		path        : 'crisis-center',
 		loadChildren: load(() => new Promise(resolve => {

@@ -20,11 +20,13 @@ import {AppComponent}  from './app.component';
 //routing
 import {routing, appRoutingProviders}        from './app.routing';
 
-import {HeroesModule} from './heroes/heroes.module';
-
 import {LoginComponent} from './login/login.component';
 //services
 import {DialogService}  from './services/dialog.service';
+
+//modules
+import {HeroesModule} from './heroes/heroes.module';
+import {DashboardModule} from "./dashboard/dashboard.module";
 
 @NgModule({
 	imports     : [
@@ -32,7 +34,8 @@ import {DialogService}  from './services/dialog.service';
 		FormsModule,
 		routing,
 		HttpModule,
-		HeroesModule
+		HeroesModule,
+		DashboardModule
 	],
 	declarations: [
 		AppComponent,
