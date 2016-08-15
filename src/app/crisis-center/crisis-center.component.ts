@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
     template:  `
-    <h2>CRISIS CENTER</h2>
+    <h3>CRISIS CENTER</h3>
     <router-outlet></router-outlet>
   `
 })

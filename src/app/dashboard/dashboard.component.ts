@@ -4,24 +4,31 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {HeroService, Hero} from "../heroes/hero.service";
 
+import {Router} from '@angular/router';
 
 @Component({
 	template: require('./dashboard.component.html'),
-	styles:[require('./dashboard.component.less')]
+	styles  : [require('./dashboard.component.less')]
 })
 
 
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit {
 	heroes: Hero[] = [];
 
-	constructor(private heroService: HeroService) { }
-
-	ngOnInit(){
-		this.heroService.getHeroes()
-			.then(heroes => this.heroes = heroes.slice(1, 5));
+	constructor(private router: Router,
+	            private heroService: HeroService) {
 	}
 
 
-	gotoDetail() { /* not implemented yet */}
+	gotoDetail(hero: Hero) {
+
+		let link = ['/hero', hero.id];
+		this.router.navigate(link);
+	}
+
+	ngOnInit() {
+		this.heroService.getHeroes()
+			.then(heroes => this.heroes = heroes.slice(1, 5));
+	}
 
 }
