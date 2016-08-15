@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, OnDestroy, Output} from '@angular/core';
 import {Router, ActivatedRoute, Params}       from '@angular/router';
 
 import {Hero, HeroService}  from './hero.service';
